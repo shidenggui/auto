@@ -16,14 +16,16 @@ git clone https://github.com/shidenggui/auto
 cp settings.example.py settings.py
 ```
 
+3. Edit settings.py
+
 Edit settings in settings.py, options based on [celery configuration](http://docs.celeryproject.org/en/latest/userguide/configuration.html)
 
 You can set `sentry_dsn` value to enable sentry's celery integration
 
 
-3. Create your cron tasks python file under tasks folder
+4. Create your cron tasks python file under tasks folder
 
-content of `tasks/tests.py`
+examples in `tasks/tests.py`
 ```python
 from celery import shared_task
 
@@ -53,6 +55,6 @@ def cron_by_bind(self):
 
 4. Run
 
-``bash
+```bash
 celery worker -A auto.cron -B
 ```
