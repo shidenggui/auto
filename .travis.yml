@@ -10,6 +10,7 @@ env:
 
 install:
   - pip install -r test-requirements.txt
+  - cp settings.example.py settings.py
 
 script:
   - flake8 $PROJ
