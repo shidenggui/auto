@@ -4,10 +4,11 @@ Easy use python cron tasks template based on celery
 ## Usage
 
 
-1. Git clone
+1. Git clone && install dependencies
 
 ```bash
 git clone https://github.com/shidenggui/auto
+cd auto && pip install -r requirements.txt
 ```
 
 2. Create settings.py
