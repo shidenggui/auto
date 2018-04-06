@@ -6,9 +6,12 @@ python:
   - "3.6"
   - "3.7-dev"
 
+env:
+  - PROJ=auto
+
 install:
   - pip install -r test-requirements.txt
 
 script:
-  - flake8
-  - pytest --cov=./
+  - flake8 $PROJ
+  - pytest --cov=$PROJ
