@@ -1,4 +1,7 @@
 # auto
+[![Travis](https://img.shields.io/travis/shidenggui/auto.svg)](https://travis-ci.org/shidenggui/auto)
+[![License](https://img.shields.io/github/license/shidenggui/auto.svg)](https://github.com/shidenggui/auto/blob/master/LICENSE)
+
 Easy use python cron tasks template based on celery
 
 ## Usage
