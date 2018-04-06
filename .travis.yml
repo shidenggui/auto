@@ -14,4 +14,4 @@ install:
 
 script:
   - flake8 $PROJ
-  - pytest --cov=$PROJ
+  - pytest --cov=$PROJ -v tests
