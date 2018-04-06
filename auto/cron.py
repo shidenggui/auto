@@ -43,7 +43,7 @@ def update_cron_task(cron, func, *args, **kwargs):
     if isinstance(cron, str):
         cron = crontab(*cron.split(' '))
     task = '{}.{}'.format(func.__module__, func.__name__)
-    cron_name = f'[{task} | {cron}]'
+    cron_name = '[{task} | {cron}]'.format(task=task, cron=cron)
     app.conf.beat_schedule.update({
         cron_name: {
             'task': task,
