@@ -78,7 +78,8 @@ def cron_task(cron, *args, **kwargs):
 
 
 def add_cron_task(cron, *args, **kwargs):
-    """add cron task to celery beat_schedule, but need manually specific shared task decorator
+    """add cron task to celery beat_schedule,
+    but need manually specific shared task decorator
     :param cron: cron setting
     :type cron: str or int or schedule format
     :param args: args pass to task
