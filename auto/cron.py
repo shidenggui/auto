@@ -5,8 +5,8 @@ from celery.schedules import crontab
 
 from auto.utils import load_tasks
 
-app = Celery('auto', include=load_tasks())
-app.config_from_object('settings')
+app = Celery("auto", include=load_tasks())
+app.config_from_object("settings")
 
 
 def register_sentry():
@@ -14,7 +14,7 @@ def register_sentry():
     from raven import Client
     from raven.contrib.celery import register_signal, register_logger_signal
 
-    dsn = app.conf.get('sentry_dsn')
+    dsn = app.conf.get("sentry_dsn")
     if dsn is None:
         return
     client = Client(dsn)
@@ -41,17 +41,19 @@ def update_cron_task(cron, func, *args, **kwargs):
     :type kwargs: dict
     """
     if isinstance(cron, str):
-        cron = crontab(*cron.split(' '))
-    task = '{}.{}'.format(func.__module__, func.__name__)
-    cron_name = '[{task} | {cron}]'.format(task=task, cron=cron)
-    app.conf.beat_schedule.update({
-        cron_name: {
-            'task': task,
-            'schedule': cron,
-            'args': args,
-            'kwargs': kwargs
+        cron = crontab(*cron.split(" "))
+    task = "{}.{}".format(func.__module__, func.__name__)
+    cron_name = "[{task} | {cron}]".format(task=task, cron=cron)
+    app.conf.beat_schedule.update(
+        {
+            cron_name: {
+                "task": task,
+                "schedule": cron,
+                "args": args,
+                "kwargs": kwargs,
+            }
         }
-    })
+    )
 
 
 def cron_task(cron, *args, **kwargs):

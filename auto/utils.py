@@ -2,7 +2,7 @@
 import os
 
 
-def load_tasks(folder='tasks'):
+def load_tasks(folder="tasks"):
     """
     return python files module name under folder
     :param folder: folder name
@@ -11,8 +11,8 @@ def load_tasks(folder='tasks'):
     """
     includes = []
     for file in os.listdir(folder):
-        if not file.endswith('.py'):
+        if not file.endswith(".py"):
             continue
         basename = os.path.splitext(file)[0]
-        includes.append('{}.{}'.format(folder, basename))
+        includes.append("{}.{}".format(folder, basename))
     return includes
